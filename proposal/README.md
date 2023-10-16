@@ -8,21 +8,21 @@ Adithkrishnan98’s ECommerce-Java.
 ## Problem/Issues to resolve
 Our application aims to refine the e-commerce pipeline by providing useful tools for managing product prices, availability, and user transactions. Our program will provide a flexible interface for the admin to manage the sellers’ and customers’ transactions and information, the seller to manage the product information and offer discounts, and the user to purchase through access to a cart. Furthermore, proper authentication is in place to ensure confidentiality and security of the customer’s data. In all, our program strives to deliver effective and seamless operations for customers, sellers, and admin in an online environment.
 ## Operations
-The e-commerce has 3 main users: admin, seller, and customer.\
-Admin:
-- Manage the user's accounts (sellers and customers).\
-Seller:
-- Add/ remove the products they want to sell (id, name, price).
-- Manage the inventory.
-- Handle returns and refunds.
-- Customer Support.
-- Give customer a special discount.\
-Customer:
-- Search the product.
-- Select or remove the product they want to buy.
-- Payment.
-- Returns and refunds.
-- Reviews.
+The e-commerce has 3 main users: admin, seller, and customer.
+- Admin:
+  + Manage the user's accounts (sellers and customers).
+- Seller:
+  + Add/ remove the products they want to sell (id, name, price).
+  + Manage the inventory.
+  + Handle returns and refunds.
+  + Customer Support.
+  + Give customer a special discount.
+- Customer:
+  + Search the product.
+  + Select or remove the product they want to buy.
+  + Payment.
+  + Returns and refunds.
+  + Reviews.
 ## Assumptions
 The end user must be an e-commerce business seeking to ensure maximum customer satisfaction and ease of operation for the faculty/staff.  The admin, which requires special authentication, manages user’s accounts. The seller manages the product pricing and inventory. The user can view and purchase products.
 ## Operating environments
