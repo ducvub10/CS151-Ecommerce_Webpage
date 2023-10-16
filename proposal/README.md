@@ -1,9 +1,9 @@
 # CS151-Ecommerce_Webpage_Proposal
-**Team #** 9
-**Team members:** Frank Lo, Kiet Quan, Le Nguyen, Naiwei Guan
-**Team member working on the proposal:** Frank Lo, Kiet Quan, Le Nguyen, Naiwei Guan
+**Team #** 9\
+**Team members:** Frank Lo, Kiet Quan, Le Nguyen, Naiwei Guan\
+**Team member working on the proposal:** Frank Lo, Kiet Quan, Le Nguyen, Naiwei Guan\
 ## Previous works
-Vzenun’s E-Commerce_Application-JAVA-.
+Vzenun’s E-Commerce_Application-JAVA-.\
 Adithkrishnan98’s ECommerce-Java.
 ## Problem/Issues to resolve
 Our application aims to refine the e-commerce pipeline by providing useful tools for managing product prices, availability, and user transactions. Our program will provide a flexible interface for the admin to manage the sellers’ and customers’ transactions and information, the seller to manage the product information and offer discounts, and the user to purchase through access to a cart. Furthermore, proper authentication is in place to ensure confidentiality and security of the customer’s data. In all, our program strives to deliver effective and seamless operations for customers, sellers, and admin in an online environment.
@@ -40,5 +40,5 @@ Plan of approach in the program is to tackle each part of the e-commerce one at 
 - Product list page that sellers can view, edit, or delete their products: to adjust inventory
 - Option to provide special discounts: offer discounts to customers
 ## Reference
-Vzenun’s [E-Commerce_Application-JAVA-](https://github.com/Vzenun/E-Commerce_Application-JAVA-).
+Vzenun’s [E-Commerce_Application-JAVA-](https://github.com/Vzenun/E-Commerce_Application-JAVA-).\
 Adithkrishnan98’s [ECommerce-Java](https://github.com/adithkrishnan98/ECommerce-Java/tree/main).
