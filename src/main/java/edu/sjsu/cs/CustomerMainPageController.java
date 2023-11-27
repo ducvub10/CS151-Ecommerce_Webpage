@@ -127,8 +127,15 @@ class mainProductCard extends AnchorPane {
             
             @Override
             public void handle(ActionEvent event){
-                Main.getCustomer().cart.add(Main.getStore().getProducts().get(id));
-                System.out.println("Product " + name + " added to cart");
+                if (Main.getCustomer().cart.contains(Main.getStore().getProducts().get(id))){
+                    Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).setQuantity(Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).getQuantity() + 1);
+                    System.out.println("Product " + name + " increased quantity in cart");
+                }
+                else{
+                    Main.getCustomer().cart.add(Main.getStore().getProducts().get(id));
+                    Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).setQuantity(1);
+                    System.out.println("Product " + name + " added to cart");
+                }
             }
         });
 

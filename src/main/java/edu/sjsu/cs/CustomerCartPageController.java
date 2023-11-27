@@ -14,6 +14,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -78,7 +79,7 @@ public class CustomerCartPageController implements Initializable {
     public void displayItem(Customer customer){
         List<AnchorPane> items = new ArrayList<>();
         for(Product product: customer.getCart()){
-            items.add(new cartProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
+            items.add(new cartProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId(), product.getQuantity()));
         }
         FlowPane flowPane = itemDisplayArea;
 
@@ -93,8 +94,22 @@ public class CustomerCartPageController implements Initializable {
         displayTotalPrice();
     }
 
+    public void switchToCheckout(){
+        try{
+            root = FXMLLoader.load(getClass().getResource("CustomerCheckoutPage.fxml"));
+            stage = (Stage)totalPriceBox.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(Exception e){
+            System.out.println("Error switching to customer checkout page");
+        }
+    }
+
     class cartProductCard extends AnchorPane {
         private double productPrice;
+        // private int quantity = 1;
 
         public void setPrice(double price) {
             this.productPrice = price;
@@ -104,7 +119,16 @@ public class CustomerCartPageController implements Initializable {
             return productPrice;
         }
 
-        public cartProductCard(String name, double price, ImageView image, String id) {
+        // public void setQuantity(int quantity) {
+        //     this.quantity = quantity;
+        // }
+
+        // public int getQuantity() {
+        //     return quantity;
+        // }
+
+
+        public cartProductCard(String name, double price, ImageView image, String id, int quantity) {
             
             this.setPrefSize(200, 200);
             this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -124,12 +148,13 @@ public class CustomerCartPageController implements Initializable {
                 }
             });
 
-            TextField quantity = new TextField();
-            quantity.setPromptText("Enter quantity");
-            quantity.setPrefWidth(100);
-            
+            TextField quantityField = new TextField();
+            quantityField.setPromptText("Enter quantity");
+            quantityField.setPrefWidth(100);
+            quantityField.setText(Integer.toString(quantity));
+
             // Add a ChangeListener to the TextField
-            quantity.textProperty().addListener(new ChangeListener<String>() {
+            quantityField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 // This code will be executed whenever the text of the TextField changes
@@ -144,7 +169,7 @@ public class CustomerCartPageController implements Initializable {
 
             HBox bottomHBox = new HBox();
             bottomHBox.getChildren().add(deleteFromCart);
-            bottomHBox.getChildren().add(quantity);
+            bottomHBox.getChildren().add(quantityField);
 
             ImageView productImage = new ImageView();
             productImage.setFitHeight(150);
@@ -161,7 +186,7 @@ public class CustomerCartPageController implements Initializable {
             productBorder.setBottom(bottomHBox);
             // productBorder.setBottom(productPrice);
 
-            this.productPrice = quantity.getText().isEmpty() ? price : price * Integer.parseInt(quantity.getText());
+            this.productPrice = quantityField.getText().isEmpty() ? price : price * Integer.parseInt(quantityField.getText());
             this.getChildren().add(productBorder);
         
         }
