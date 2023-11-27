@@ -29,7 +29,8 @@ public void start(Stage stage) {
         store.getProducts().put("1", new Product("1", "apple", 10.0));
         store.getProducts().put("2", new Product("2", "banana", 15.0));
         store.getProducts().put("3", new Product("3", "dragon fruit", 20.0));
-    
+        store.getProducts().put("4", new Product("4", "orange", 25.0));
+
     try {
         Parent root = FXMLLoader.load(getClass().getResource("CustomerMainPage.fxml"));
         Scene scene = new Scene(root);

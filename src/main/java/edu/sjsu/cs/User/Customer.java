@@ -3,7 +3,7 @@ package edu.sjsu.cs.User;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.sjsu.cs.Behaviors.AddProduct;
+// import edu.sjsu.cs.Behaviors.AddProduct;
 
 /**
  * Customer
@@ -29,6 +29,14 @@ public class Customer extends User {
         this.address = address;
     }
     
+    public List<Product> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<Product> cart) {
+        this.cart = cart;
+    }
+    
     // public void setAddProduct(AddProduct addProduct) {
     //     this.addProduct = addProduct;
     // }
@@ -36,6 +44,12 @@ public class Customer extends User {
     public void addProduct(Product product) {
         cart.add(product);
     }
+
+    public void removeProduct(Product product) {
+        cart.remove(product);
+    }
+
+
 
 }
 
