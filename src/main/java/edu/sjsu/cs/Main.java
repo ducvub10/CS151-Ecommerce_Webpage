@@ -32,7 +32,7 @@ public void start(Stage stage) {
         store.getProducts().put("4", new Product("4", "orange", 25.0));
 
     try {
-        Parent root = FXMLLoader.load(getClass().getResource("CustomerMainPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SignInPage.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

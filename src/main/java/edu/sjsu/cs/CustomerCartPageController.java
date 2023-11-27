@@ -5,16 +5,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
 import edu.sjsu.cs.Store_Properties.Store;
 import edu.sjsu.cs.User.Customer;
 import edu.sjsu.cs.User.Product;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CustomerCartPageController implements Initializable {
@@ -23,9 +40,17 @@ public class CustomerCartPageController implements Initializable {
     private Parent root;
     private Store store;
     private Customer customer;
+    private double totalPrice = 0;
+
 
     @FXML
     private FlowPane itemDisplayArea;
+
+    @FXML
+    private HBox totalPriceBox;
+
+    @FXML
+    private Label priceLabel;
     // TODO: Implement your code here
 
     @Override
@@ -35,17 +60,112 @@ public class CustomerCartPageController implements Initializable {
         displayItem(customer);
     }
 
-    private void displayItem(Customer customer){
+    public void displayTotalPrice(){
+        tallyTotalPrice();
+        priceLabel.setText(totalPrice + " $");
+    }
+
+    public void tallyTotalPrice(){
+        totalPrice = 0;
+        for (Node node: itemDisplayArea.getChildren()){
+            if (node instanceof AnchorPane) {
+                totalPrice += ((cartProductCard)node).getPrice();
+            }
+        }
+        
+    }
+
+    public void displayItem(Customer customer){
         List<AnchorPane> items = new ArrayList<>();
         for(Product product: customer.getCart()){
-            items.add(new productCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
+            items.add(new cartProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
         }
         FlowPane flowPane = itemDisplayArea;
 
+        flowPane.getChildren().clear();
+        totalPrice = 0;
+
         for (AnchorPane item : items) {
-            flowPane.getChildren().add(item);
+            flowPane.getChildren().add(item); 
         }
+
+
+        displayTotalPrice();
     }
 
+    class cartProductCard extends AnchorPane {
+        private double productPrice;
 
+        public void setPrice(double price) {
+            this.productPrice = price;
+        }
+
+        public double getPrice() {
+            return productPrice;
+        }
+
+        public cartProductCard(String name, double price, ImageView image, String id) {
+            
+            this.setPrefSize(200, 200);
+            this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+            Label productName = new Label();
+            productName.setText(name + " - " + Double.toString(price) + " $");
+            
+            // Label productPrice = new Label();
+            // productPrice.setText(Double.toString(price));
+            Button deleteFromCart = new Button("Delete");
+            deleteFromCart.setOnAction(new EventHandler<ActionEvent>() {
+                
+                @Override
+                public void handle(ActionEvent event){
+                    Main.getCustomer().cart.remove(Main.getStore().getProducts().get(id));
+                    displayItem(Main.getCustomer());
+                    System.out.println("Product " + name + " deleted from cart");
+                }
+            });
+
+            TextField quantity = new TextField();
+            quantity.setPromptText("Enter quantity");
+            quantity.setPrefWidth(100);
+            
+            // Add a ChangeListener to the TextField
+            quantity.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // This code will be executed whenever the text of the TextField changes
+                System.out.println("Quantity changed from " + oldValue + " to " + newValue);
+                if(!newValue.isEmpty()){
+                    productPrice = price * Integer.parseInt(newValue);
+                    displayTotalPrice();
+                }
+            }
+            });
+
+
+            HBox bottomHBox = new HBox();
+            bottomHBox.getChildren().add(deleteFromCart);
+            bottomHBox.getChildren().add(quantity);
+
+            ImageView productImage = new ImageView();
+            productImage.setFitHeight(150);
+            productImage.setFitWidth(200);
+            productImage.setPreserveRatio(true);
+            productImage.setImage(new javafx.scene.image.Image(getClass().getResource("img/emart_logo.jpg").toExternalForm()));
+
+            BorderPane productBorder = new BorderPane();
+            productBorder.setPrefSize(200, 200);
+            AnchorPane.setTopAnchor(productBorder, 0.0);
+            AnchorPane.setLeftAnchor(productBorder, 0.0);
+            productBorder.setCenter(productImage);
+            productBorder.setTop(productName);
+            productBorder.setBottom(bottomHBox);
+            // productBorder.setBottom(productPrice);
+
+            this.productPrice = quantity.getText().isEmpty() ? price : price * Integer.parseInt(quantity.getText());
+            this.getChildren().add(productBorder);
+        
+        }
 }
+}
+
+

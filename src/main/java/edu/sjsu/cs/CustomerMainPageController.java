@@ -67,12 +67,29 @@ public class CustomerMainPageController implements Initializable {
                         System.out.println("Error switching to customer cart page");
                     }
                 }
+
+                if(selected.equals("Profile")){
+                    try{
+                        switchToCustomerProfilePage(event);
+                    }
+                    catch(IOException e){
+                        System.out.println("Error switching to customer profile page");
+                    }
+                }
             }
         });
         //display items from store
         displayItem(this.store);
 
     }
+
+    public void switchToCustomerProfilePage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("CustomerProfilePage.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    } 
 
     public void switchToCustomerCartPage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("CustomerCartPage.fxml"));
@@ -85,7 +102,7 @@ public class CustomerMainPageController implements Initializable {
     private void displayItem(Store customer){
         List<AnchorPane> items = new ArrayList<>();
         for(Product product: store.getProducts().values()){
-            items.add(new productCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
+            items.add(new mainProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
         }
         FlowPane flowPane = itemDisplayArea;
 
@@ -95,8 +112,8 @@ public class CustomerMainPageController implements Initializable {
     }
 }
 
-class productCard extends AnchorPane {
-    public productCard(String name, double price, ImageView image, String id) {
+class mainProductCard extends AnchorPane {
+    public mainProductCard(String name, double price, ImageView image, String id) {
         
         this.setPrefSize(200, 200);
         this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
