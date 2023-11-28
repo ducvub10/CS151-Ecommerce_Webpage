@@ -12,7 +12,7 @@
             <Font name="Berlin Sans FB Bold" size="30.0" />
          </font>
       </Label>
-      <Label text="Customer Info">
+      <Label text="Customer Information">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
@@ -25,6 +25,23 @@
       <ScrollPane prefHeight="300.0" prefWidth="800.0">
          <content>
             <GridPane fx:id="customerInfo" prefHeight="0.0" prefWidth="0.0">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Label text="Seller Information">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" top="10.0" />
+         </padding>
+      </Label>
+      <ScrollPane prefHeight="300.0" prefWidth="800.0">
+         <content>
+            <GridPane fx:id="sellerInfo">
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>

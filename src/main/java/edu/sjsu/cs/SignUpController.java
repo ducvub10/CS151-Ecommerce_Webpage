@@ -84,14 +84,34 @@ public class SignUpController implements Initializable {
         try {
             this.validatePassword(password);
             String userIden = (String)this.userIdentity.getValue();
+            Boolean isCusExist = false;
+            Boolean isSellerExist = false;
             if (userIden.equals("Customer")) {
-                Customer customer = new Customer(username, password, email, address, phone);
-                customers.add(customer);
-                this.showSuccess();
+                for (Customer customer: customers) {
+                    if (username.equals(customer.getUsername())) {
+                        showError("The username is already existed");
+                        isCusExist = true;
+                        break;
+                    }
+                }
+                if (!isCusExist) {
+                    Customer customer1 = new Customer(username, password, email, address, phone);
+                    customers.add(customer1);
+                    this.showSuccess();
+                }
             } else if (userIden.equals("Seller")) {
-                Seller seller = new Seller(username, password, email, phone, companyName, companyAddress);
-                sellers.add(seller);
-                this.showSuccess();
+                for (Seller seller: sellers) {
+                    if (username.equals(seller.getUsername())) {
+                        showError("The username is already existed");
+                        isSellerExist = true;
+                        break;
+                    }
+                }
+                if (!isSellerExist) {
+                    Seller seller1 = new Seller(username, password, email, phone, companyName, companyAddress);
+                    sellers.add(seller1);
+                    this.showSuccess();
+                }
             }
         } catch (PasswordException e) {
             this.showError(e.getMessage());
@@ -152,7 +172,7 @@ public class SignUpController implements Initializable {
     }
 
     public void switchWelcomePage(ActionEvent event) throws IOException {
-        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("AdminMainPage.fxml"));
+        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("WelcomePage.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         this.scene = new Scene(this.root);
         this.stage.setScene(this.scene);
