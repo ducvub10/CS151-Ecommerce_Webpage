@@ -1,11 +1,11 @@
 package store;
-import users.Customer;
+import User.Customer;
 
 public class Order {
     private String orderID;
     private Customer user;
 
-    public Order(String orderID, Custumer user) {
+    public Order(String orderID, Customer user) {
         this.orderID = orderID;
         this.user = user;
     }

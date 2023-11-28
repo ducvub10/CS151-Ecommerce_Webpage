@@ -1,3 +1,7 @@
+package store;
+
+import User.Seller;
+
 public class Product {
     private String product_id;
     private double cost;

@@ -18,5 +18,5 @@ public interface UserInterface {
     public boolean login(String username, String password);
     public void logout();
     public void viewProfile();
-    public void editProfile();
+    public void editProfile(String firstName, String lastName, String username, String password, String email, String phoneNumber);
 }
