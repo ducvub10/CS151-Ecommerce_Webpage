@@ -152,7 +152,7 @@ public class SignUpController implements Initializable {
     }
 
     public void switchWelcomePage(ActionEvent event) throws IOException {
-        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("WelcomePage.fxml"));
+        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("AdminMainPage.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         this.scene = new Scene(this.root);
         this.stage.setScene(this.scene);

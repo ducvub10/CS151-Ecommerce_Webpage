@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.AdminMainPageController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="800.0" text="Admin" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label text="Customer Info">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" />
+         </padding></Label>
+      <ScrollPane prefHeight="300.0" prefWidth="800.0">
+         <content>
+            <GridPane fx:id="customerInfo" prefHeight="0.0" prefWidth="0.0">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

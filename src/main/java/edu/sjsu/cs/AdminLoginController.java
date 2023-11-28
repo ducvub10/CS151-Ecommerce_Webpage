@@ -27,7 +27,7 @@ public class AdminLoginController extends SignUpController implements Initializa
     @FXML
     private PasswordField passwordField;
 
-    @FXML
+   /*  @FXML
     private void logIn(ActionEvent event) throws IOException {
         String username = this.usernameField.getText();
         String password = this.passwordField.getText();
@@ -37,7 +37,7 @@ public class AdminLoginController extends SignUpController implements Initializa
 
     }
 
-    public boolean isValidLogin(String username, String password){
+   public boolean isValidLogin(String username, String password){
         for (Admin admin: admins){
             if (admin.getUsername().equals(username)){
                 if (admin.getPassword().equals(password)){
@@ -52,6 +52,8 @@ public class AdminLoginController extends SignUpController implements Initializa
         showError("The username is incorrect");
         return false;
     }
+
+   */
 
     public void switchToAdminMainPage(ActionEvent event) throws IOException {
         this.root = (Parent)FXMLLoader.load(this.getClass().getResource("AdminMainPage.fxml"));
