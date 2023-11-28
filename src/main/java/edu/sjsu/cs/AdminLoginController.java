@@ -1,10 +1,10 @@
 package edu.sjsu.cs;
 
+import edu.sjsu.cs.User.Customer;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
-
-import edu.sjsu.cs.User.Seller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class SellerLoginController extends SignUpController implements Initializable {
+public class AdminLoginController extends SignUpController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -32,15 +32,15 @@ public class SellerLoginController extends SignUpController implements Initializ
         String username = this.usernameField.getText();
         String password = this.passwordField.getText();
         if (this.isValidLogin(username, password)) {
-            this.switchToSellerMainPage(event);
+            this.switchToAdminMainPage(event);
         }
 
     }
 
     public boolean isValidLogin(String username, String password){
-        for (Seller seller: sellers){
-            if (seller.getUsername().equals(username)){
-                if (seller.getPassword().equals(password)){
+        for (Admin admin: admins){
+            if (admin.getUsername().equals(username)){
+                if (admin.getPassword().equals(password)){
                     return true;
                 }
                 else {
@@ -53,8 +53,8 @@ public class SellerLoginController extends SignUpController implements Initializ
         return false;
     }
 
-    public void switchToSellerMainPage(ActionEvent event) throws IOException {
-        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("SellerMainPage.fxml"));
+    public void switchToAdminMainPage(ActionEvent event) throws IOException {
+        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("AdminMainPage.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         this.scene = new Scene(this.root);
         this.stage.setScene(this.scene);
@@ -71,4 +71,3 @@ public class SellerLoginController extends SignUpController implements Initializ
     public void initialize(URL location, ResourceBundle resources) {
     }
 }
-
