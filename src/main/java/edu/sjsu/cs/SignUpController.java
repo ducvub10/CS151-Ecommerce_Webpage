@@ -1,5 +1,6 @@
 package edu.sjsu.cs;
 
+import edu.sjsu.cs.User.Admin;
 import edu.sjsu.cs.User.Customer;
 import edu.sjsu.cs.User.Seller;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class SignUpController implements Initializable {
 
     private void loadData() {
         this.list.removeAll(this.list);
-        this.list.addAll(new Object[]{"Customer", "Seller", "Admin"});
+        this.list.addAll(new Object[]{"Customer", "Seller"});
         this.userIdentity.getItems().addAll(this.list);
     }
 
@@ -157,7 +158,7 @@ public class SignUpController implements Initializable {
         }
     }
 
-    private void showError(String message) {
+    protected void showError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Something error!!!");
         alert.setContentText(message);
@@ -178,4 +179,6 @@ public class SignUpController implements Initializable {
         this.stage.setScene(this.scene);
         this.stage.show();
     }
+
+
 }

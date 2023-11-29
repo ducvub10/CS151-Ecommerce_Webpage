@@ -1,10 +1,15 @@
 package edu.sjsu.cs;
 
 import edu.sjsu.cs.User.Customer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CusInfoController {
+public class CusInfoController extends AdminMainPageController implements Initializable {
     @FXML
     private Label user_name;
 
@@ -19,12 +24,23 @@ public class CusInfoController {
 
     @FXML
     private Label phone;
+    private Customer customer;
 
     public void setData(Customer customer) {
+        this.customer = customer;
         user_name.setText(customer.getUsername());
         password.setText(customer.getPassword());
         email.setText(customer.getEmail());
         address.setText(customer.getAddress());
         phone.setText(customer.getPhone());
+    }
+
+    public void deleteCustomer(ActionEvent event) throws IOException {
+        String username = customer.getUsername();
+        customers.removeIf(customer -> customer.getUsername().equals(username));
+        switchToAdminMainPage(event);
+    }
+
+    public void initialize(URL location, ResourceBundle resources) {
     }
 }

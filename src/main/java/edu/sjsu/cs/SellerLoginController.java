@@ -61,13 +61,6 @@ public class SellerLoginController extends SignUpController implements Initializ
         this.stage.show();
     }
 
-    private void showError(String message) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Something error!!!");
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
     public void initialize(URL location, ResourceBundle resources) {
     }
 }

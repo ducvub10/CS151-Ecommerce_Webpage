@@ -1,6 +1,6 @@
 package edu.sjsu.cs;
 
-import edu.sjsu.cs.User.Customer;
+import edu.sjsu.cs.User.Admin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -18,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+import static edu.sjsu.cs.WelcomePageController.admins;
+
 public class AdminLoginController extends SignUpController implements Initializable {
     private Stage stage;
     private Scene scene;
@@ -26,8 +28,7 @@ public class AdminLoginController extends SignUpController implements Initializa
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
-
-   /*  @FXML
+    @FXML
     private void logIn(ActionEvent event) throws IOException {
         String username = this.usernameField.getText();
         String password = this.passwordField.getText();
@@ -53,21 +54,12 @@ public class AdminLoginController extends SignUpController implements Initializa
         return false;
     }
 
-   */
-
     public void switchToAdminMainPage(ActionEvent event) throws IOException {
         this.root = (Parent)FXMLLoader.load(this.getClass().getResource("AdminMainPage.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         this.scene = new Scene(this.root);
         this.stage.setScene(this.scene);
         this.stage.show();
-    }
-
-    private void showError(String message) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Something error!!!");
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
     public void initialize(URL location, ResourceBundle resources) {

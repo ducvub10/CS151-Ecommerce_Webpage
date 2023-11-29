@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="320.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerInfoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="250.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.AdminInfoController">
     <children>
         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -16,7 +16,7 @@
                 <Rectangle2D />
             </viewport>
         </ImageView>
-        <VBox alignment="TOP_RIGHT" prefHeight="169.0" prefWidth="318.0" spacing="5.0">
+        <VBox alignment="TOP_RIGHT" prefHeight="277.0" prefWidth="248.0" spacing="5.0">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
                     <children>
@@ -28,7 +28,7 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="user_name" prefHeight="16.0" prefWidth="180.0" text="Label" translateX="48.0">
+                        <Label fx:id="user_name" prefHeight="16.0" prefWidth="165.0" text="Label">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
@@ -45,7 +45,7 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="password" prefHeight="16.0" prefWidth="180.0" text="Label" translateX="51.0">
+                        <Label fx:id="password" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="4.0">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
@@ -62,7 +62,7 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="email" prefHeight="16.0" prefWidth="180.0" text="Label" translateX="73.0">
+                        <Label fx:id="email" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="26.0">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
@@ -71,7 +71,7 @@
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
                     <children>
-                        <Label text="Company Name: ">
+                        <Label text="Position: ">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
@@ -79,24 +79,7 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="companyName" prefHeight="16.0" prefWidth="180.0" text="Label" translateX="9.0">
-                            <font>
-                                <Font name="Berlin Sans FB" size="14.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
-                    <children>
-                        <Label text="Company Address: ">
-                            <font>
-                                <Font name="Berlin Sans FB" size="14.0" />
-                            </font>
-                            <padding>
-                                <Insets left="5.0" />
-                            </padding>
-                        </Label>
-                        <Label fx:id="companyAddress" prefHeight="16.0" prefWidth="180.0" text="Label">
+                        <Label fx:id="position" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="15.0">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
@@ -113,21 +96,20 @@
                                 <Insets left="5.0" />
                             </padding>
                         </Label>
-                        <Label fx:id="phone" prefHeight="16.0" prefWidth="180.0" text="Label" translateX="68.0">
+                        <Label fx:id="phone" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="23.0">
                             <font>
                                 <Font name="Berlin Sans FB" size="14.0" />
                             </font>
                         </Label>
                     </children>
-               <padding>
-                  <Insets bottom="5.0" />
-               </padding>
                 </HBox>
             </children>
             <padding>
                 <Insets top="5.0" />
             </padding>
+            <VBox.margin>
+                <Insets bottom="-15.0" />
+            </VBox.margin>
         </VBox>
-      <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteSeller" text="Delete" />
     </children>
 </VBox>

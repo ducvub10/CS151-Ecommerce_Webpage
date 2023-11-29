@@ -64,7 +64,7 @@ public class CustomerLoginController extends SignUpController implements Initial
         this.stage.show();
     }
 
-    private void showError(String message) {
+    protected void showError(String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Something error!!!");
         alert.setContentText(message);
