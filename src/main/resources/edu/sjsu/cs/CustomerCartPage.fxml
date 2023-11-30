@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="795.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="edu.sjsu.cs.CustomerCartPageController">
+<ScrollPane fx:id="baseScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.CustomerCartPageController">
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="774.0" prefWidth="783.0">
          <children>
@@ -21,13 +21,13 @@
             </ImageView>
             <FlowPane fx:id="itemDisplayArea" layoutY="96.0" prefHeight="619.0" prefWidth="782.0" />
             <ChoiceBox fx:id="myChoiceBox" layoutX="619.0" layoutY="17.0" prefWidth="150.0" />
-            <HBox fx:id="totalPriceBox" alignment="CENTER_LEFT" layoutX="436.0" layoutY="715.0" prefHeight="37.0" prefWidth="231.0" spacing="3.0">
+            <HBox fx:id="totalPriceBox" alignment="CENTER_LEFT" layoutX="431.0" layoutY="715.0" prefHeight="37.0" prefWidth="231.0" spacing="3.0">
                <children>
                   <Label text="Total Price:" />
                   <Label fx:id="priceLabel" />
                </children>
             </HBox>
-            <Button fx:id="checkoutButton" layoutX="678.0" layoutY="721.0" mnemonicParsing="false" text="Checkout" />
+            <Button fx:id="checkoutButton" layoutX="673.0" layoutY="721.0" mnemonicParsing="false" onAction="#checkOutButtonHandler" text="Checkout" />
          </children>
       </AnchorPane>
    </content>

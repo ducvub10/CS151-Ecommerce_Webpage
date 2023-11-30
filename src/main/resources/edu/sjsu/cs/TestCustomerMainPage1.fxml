@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<ScrollPane fx:id="baseScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1010.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.TestCustomerMainPage1Controller">
+  <content>
+    <AnchorPane fx:id="baseAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="1026.0">
+         <children>
+            <HBox layoutX="-1.0" layoutY="55.0" prefHeight="47.0" prefWidth="1100.0" style="-fx-background-color: C233FF;">
+               <children>
+                  <Pane prefHeight="47.0" prefWidth="46.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="61.0">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/326656_home_icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Home" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="82.0">
+                     <children>
+                        <ImageView fitHeight="19.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/8530622_id_card_icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="About Us" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="146.0">
+                     <children>
+                        <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/3994435_ban_banned_block_disabled_stop_icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="17.0" prefWidth="86.0" text="Unban Request" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <ImageView fitHeight="51.0" fitWidth="61.0" layoutX="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/emart_logo.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="searchField" layoutX="166.0" layoutY="17.0" prefHeight="28.0" prefWidth="291.0" promptText="Search for products here" style="-fx-background-color: #FFFFFF;" />
+            <ChoiceBox fx:id="searchChoiceBox" layoutX="456.0" layoutY="17.0" prefHeight="28.0" prefWidth="106.0" style="-fx-background-color: #FFFFFF;" />
+            <HBox layoutX="812.0" layoutY="18.0" prefHeight="28.0" prefWidth="200.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <HBox fx:id="signInHBox" alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="99.0">
+                           <children>
+                              <ImageView fitHeight="17.3" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/3289576_user_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Sign in" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="myCartHBox" alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="105.0">
+                           <children>
+                              <ImageView fitHeight="17.3" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/326700_cart_shopping_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="My cart" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <ImageView fitHeight="28.0" fitWidth="27.0" layoutX="562.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/3669253_ic_search_icon.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

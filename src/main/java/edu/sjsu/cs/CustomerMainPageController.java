@@ -45,14 +45,15 @@ public class CustomerMainPageController implements Initializable {
     @FXML
     private ChoiceBox<String> myChoiceBox;
     
-    private String[] profileSelection = {"Profile", "Cart", "Order History", "Sign Out"};
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //get store and customer
         this.store = Main.getStore();
-        this.customer = Main.getCustomer();
+        this.customer = Main.getSession().getCurrentCustomer();
         //set up profile choicebox
+        String[] profileSelection = {"Profile", "Cart", "Order History", "Sign Out"};
         myChoiceBox.getItems().addAll(profileSelection);
         myChoiceBox.setValue(customer.getUsername());
         myChoiceBox.setOnAction(new EventHandler<ActionEvent>() {
@@ -61,7 +62,7 @@ public class CustomerMainPageController implements Initializable {
                 String selected = myChoiceBox.getValue();
                 if(selected.equals("Cart")){
                     try{
-                        switchToCustomerCartPage(event);
+                        PageSwitcher.switchToCustomerCartPage(event);
                     }
                     catch(IOException e){
                         System.out.println("Error switching to customer cart page");
@@ -70,34 +71,29 @@ public class CustomerMainPageController implements Initializable {
 
                 if(selected.equals("Profile")){
                     try{
-                        switchToCustomerProfilePage(event);
+                        PageSwitcher.switchToCustomerProfilePage(event);
                     }
                     catch(IOException e){
                         System.out.println("Error switching to customer profile page");
                     }
                 }
+
+                if(selected.equals("Order History")){
+                    try{
+                        PageSwitcher.switchToOrderHistoryPage(event);
+                    }
+                    catch(IOException e){
+                        System.out.println("Error switching to customer order history page");
+                    }
+                }
+
+                
             }
         });
         //display items from store
         displayItem(this.store);
 
     }
-
-    public void switchToCustomerProfilePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CustomerProfilePage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    } 
-
-    public void switchToCustomerCartPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CustomerCartPage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    } 
 
     private void displayItem(Store customer){
         List<AnchorPane> items = new ArrayList<>();
@@ -110,6 +106,30 @@ public class CustomerMainPageController implements Initializable {
             flowPane.getChildren().add(item);
         }
     }
+
+    // public void switchToOrderHistoryPage(ActionEvent event) throws IOException {
+    //     root = FXMLLoader.load(getClass().getResource("CustomerOrderHistory.fxml"));
+    //     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
+
+    // public void switchToCustomerProfilePage(ActionEvent event) throws IOException {
+    //     root = FXMLLoader.load(getClass().getResource("CustomerProfilePage.fxml"));
+    //     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // } 
+
+    // public void switchToCustomerCartPage(ActionEvent event) throws IOException {
+    //     root = FXMLLoader.load(getClass().getResource("CustomerCartPage.fxml"));
+    //     stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // } 
 }
 
 class mainProductCard extends AnchorPane {
@@ -127,13 +147,13 @@ class mainProductCard extends AnchorPane {
             
             @Override
             public void handle(ActionEvent event){
-                if (Main.getCustomer().cart.contains(Main.getStore().getProducts().get(id))){
-                    Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).setQuantity(Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).getQuantity() + 1);
+                if (Main.getSession().getCurrentCustomer().getCart().contains(Main.getStore().getProducts().get(id))){
+                    Main.getSession().getCurrentCustomer().getCart().get(Main.getSession().getCurrentCustomer().getCart().indexOf(Main.getStore().getProducts().get(id))).setQuantity(Main.getSession().getCurrentCustomer().getCart().get(Main.getSession().getCurrentCustomer().getCart().indexOf(Main.getStore().getProducts().get(id))).getQuantity() + 1);
                     System.out.println("Product " + name + " increased quantity in cart");
                 }
                 else{
-                    Main.getCustomer().cart.add(Main.getStore().getProducts().get(id));
-                    Main.getCustomer().cart.get(Main.getCustomer().cart.indexOf(Main.getStore().getProducts().get(id))).setQuantity(1);
+                    Main.getSession().getCurrentCustomer().getCart().add(Main.getStore().getProducts().get(id));
+                    Main.getSession().getCurrentCustomer().getCart().get(Main.getSession().getCurrentCustomer().getCart().indexOf(Main.getStore().getProducts().get(id))).setQuantity(1);
                     System.out.println("Product " + name + " added to cart");
                 }
             }

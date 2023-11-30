@@ -1,5 +1,6 @@
 package edu.sjsu.cs;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.ResourceBundle;
 
 import edu.sjsu.cs.Store_Properties.Store;
 import edu.sjsu.cs.User.Customer;
+import edu.sjsu.cs.User.Order;
 import edu.sjsu.cs.User.Product;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -21,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -45,6 +48,9 @@ public class CustomerCartPageController implements Initializable {
 
 
     @FXML
+    private ChoiceBox<String> myChoiceBox;
+
+    @FXML
     private FlowPane itemDisplayArea;
 
     @FXML
@@ -57,10 +63,49 @@ public class CustomerCartPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
-        this.customer = Main.getCustomer();
+        this.customer = Main.getSession().getCurrentCustomer();
+        String[] profileSelection = {"Profile", "Cart", "Order History", "Sign Out"};
+        myChoiceBox.getItems().addAll(profileSelection);
+        myChoiceBox.setValue(customer.getUsername());
+        myChoiceBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String selected = myChoiceBox.getValue();
+                if(selected.equals("Cart")){
+                    try{
+                        PageSwitcher.switchToCustomerCartPage(event);
+                    }
+                    catch(IOException e){
+                        System.out.println("Error switching to customer cart page");
+                    }
+                }
+
+                if(selected.equals("Profile")){
+                    try{
+                        PageSwitcher.switchToCustomerProfilePage(event);
+                    }
+                    catch(IOException e){
+                        System.out.println("Error switching to customer profile page");
+                    }
+                }
+
+                if(selected.equals("Order History")){
+                    try{
+                        PageSwitcher.switchToOrderHistoryPage(event);
+                    }
+                    catch(IOException e){
+                        System.out.println("Error switching to customer order history page");
+                    }
+                }
+
+                
+            }
+        });
+        //display i
         displayItem(customer);
     }
 
+    /*Set Total Price*/ 
     public void displayTotalPrice(){
         tallyTotalPrice();
         priceLabel.setText(totalPrice + " $");
@@ -75,7 +120,9 @@ public class CustomerCartPageController implements Initializable {
         }
         
     }
+    /* */
 
+    /*Display Items in Cart */
     public void displayItem(Customer customer){
         List<AnchorPane> items = new ArrayList<>();
         for(Product product: customer.getCart()){
@@ -94,18 +141,27 @@ public class CustomerCartPageController implements Initializable {
         displayTotalPrice();
     }
 
-    public void switchToCheckout(){
-        try{
-            root = FXMLLoader.load(getClass().getResource("CustomerCheckoutPage.fxml"));
-            stage = (Stage)totalPriceBox.getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch(Exception e){
-            System.out.println("Error switching to customer checkout page");
-        }
+    /* */
+
+    /*Handle Checkout button*/
+    public void checkOutButtonHandler(ActionEvent event) throws IOException{
+        Order curOrder = new Order("1", customer.getCart(), this.totalPrice);
+        Main.getSession().setCurrentOrder(curOrder);
+        PageSwitcher.switchToCustomerCheckoutPage(event);
     }
+
+    // public void switchToCheckout(){
+    //     try{
+    //         root = FXMLLoader.load(getClass().getResource("CustomerCheckoutPage.fxml"));
+    //         stage = (Stage)totalPriceBox.getScene().getWindow();
+    //         scene = new Scene(root);
+    //         stage.setScene(scene);
+    //         stage.show();
+    //     }
+    //     catch(Exception e){
+    //         System.out.println("Error switching to customer checkout page");
+    //     }
+    // }
 
     class cartProductCard extends AnchorPane {
         private double productPrice;
@@ -142,8 +198,8 @@ public class CustomerCartPageController implements Initializable {
                 
                 @Override
                 public void handle(ActionEvent event){
-                    Main.getCustomer().cart.remove(Main.getStore().getProducts().get(id));
-                    displayItem(Main.getCustomer());
+                    Main.getSession().getCurrentCustomer().getCart().remove(Main.getStore().getProducts().get(id));
+                    displayItem(Main.getSession().getCurrentCustomer());
                     System.out.println("Product " + name + " deleted from cart");
                 }
             });

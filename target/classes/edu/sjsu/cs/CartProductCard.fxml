@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="baseHBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.TestCartProductCardController">
+   <children>
+      <ImageView fx:id="productImage" fitHeight="315.0" fitWidth="277.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/emart_logo.jpg" />
+         </image></ImageView>
+      <VBox prefHeight="400.0" prefWidth="325.0">
+         <children>
+            <BorderPane prefHeight="139.0" prefWidth="323.0">
+               <center>
+                  <Label fx:id="productName" text="Label" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <VBox prefHeight="137.0" prefWidth="323.0">
+               <children>
+                  <Label fx:id="productId" text="Label" />
+                  <Label fx:id="productPrice" text="Label" />
+                  <Label fx:id="productQuantity" text="Label" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="323.0">
+               <children>
+                  <Button fx:id="deleteItem" mnemonicParsing="false" text="Button" />
+                  <TextField fx:id="quantityField" promptText="Enter quantity" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

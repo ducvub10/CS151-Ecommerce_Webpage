@@ -10,7 +10,8 @@ import java.util.List;
  */
 public class Customer extends User {
     private String address;
-    public List<Product> cart;
+    private List<Product> cart;
+    private List<Order> orderHistory;
     // private AddProduct addProduct;
     // private RemoveProduct removeProduct;
     // private EditProduct editProduct;
@@ -19,6 +20,7 @@ public class Customer extends User {
         super(username, password, email, phone);
         this.address = address;
         cart = new ArrayList<>();
+        orderHistory = new ArrayList<>();
     }
 
     public String getAddress() {
@@ -49,6 +51,21 @@ public class Customer extends User {
         cart.remove(product);
     }
 
+    public void addOrder(Order order) {
+        orderHistory.add(order);
+    }
+
+    public void removeOrder(Order order) {
+        orderHistory.remove(order);
+    }
+
+    public List<Order> getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(List<Order> orderHistory) {
+        this.orderHistory = orderHistory;
+    }
 
 
 }

@@ -5,5 +5,6 @@ module edu.sjsu.cs.assignment3 {
 
 
     opens edu.sjsu.cs to javafx.fxml;
+    opens edu.sjsu.cs.User to javafx.base;
     exports edu.sjsu.cs;
 }

@@ -1,0 +1,54 @@
+#searchField {
+    -fx-border-color: grey;
+    -fx-border-width: 1;
+}
+
+#searchChoiceBox{
+    -fx-border-color: grey;
+    -fx-border-width: 1;
+}
+
+#myCartHBox {
+    -fx-background-color: #f5f5f5a3; /* This is light grey */
+    -fx-background-radius: 5; /* This should match the border radius */
+    -fx-border-radius: 5; /* This will make the border slightly rounded */
+    -fx-border-color: #f5f5f5a3; /* Border color */
+    -fx-border-width: 1; 
+}
+
+#signInHBox {
+    -fx-background-color: #f5f5f5a3; /* This is light grey */
+    -fx-background-radius: 5; /* This should match the border radius */
+    -fx-border-radius: 5; /* This will make the border slightly rounded */
+    -fx-border-color: #f5f5f5a3; /* Border color */
+    -fx-border-width: 1; 
+}
+
+#productCardBase{
+    -fx-border-color: #f5f5f5a3; /* Change this to your desired border color */
+    -fx-border-width: 1; /* Change this to your desired border width */
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 15, 0, 0, 10);
+}
+
+#summaryText{
+    -fx-font-family: 'System';
+}
+
+#summaryBlock{
+    -fx-background-color: rgba(156, 155, 155, 0.993); /* This is light grey */
+}
+
+#summaryBlock2{
+    -fx-background-color: rgba(156, 155, 155, 0.993); /* This is light grey */
+}
+
+.labelStyle {
+    -fx-text-fill: black; /* Replace with the color you want */
+    -fx-font-family: 'System'; /* Replace with the font you want */
+    /* Add any other styles you want */
+    -fx-font-size: 14px;
+}
+
+
+

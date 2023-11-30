@@ -9,12 +9,20 @@ import edu.sjsu.cs.User.Product;
 
 
 public class Store {
+    private static Store instance = null;
     private String name;
     private Map<String, Product> products;
 
-    public Store(String name) {
+    private Store(String name) {
         this.name = name;
         this.products = new HashMap<>();
+    }
+
+    public static Store getInstance(String name) {
+        if (instance == null) {
+            instance = new Store(name);
+        }
+        return instance;
     }
 
     public void addProduct(Product product) {
@@ -28,11 +36,4 @@ public class Store {
     public Map<String, Product> getProducts() {
         return products;
     }
-
-    // public void displayProducts() {
-    //     System.out.println("Products available in " + name + ":");
-    //     for (Product product : products.entrySet()) {
-    //         System.out.println(product.getName() + " - $" + product.getPrice());
-    //     }
-    // }
 }
