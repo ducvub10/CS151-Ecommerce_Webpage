@@ -67,7 +67,7 @@
                                     <Image url="@img/3289576_user_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label text="Sign in" />
+                              <ChoiceBox fx:id="myChoiceBox" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox fx:id="myCartHBox" alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="105.0">
