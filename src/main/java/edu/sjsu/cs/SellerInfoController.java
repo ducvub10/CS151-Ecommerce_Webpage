@@ -9,11 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SellerInfoController extends AdminMainPageController implements Initializable {
@@ -49,8 +51,12 @@ public class SellerInfoController extends AdminMainPageController implements Ini
 
     public void deleteSeller(ActionEvent event) throws IOException {
         String username = seller.getUsername();
-        sellers.removeIf(seller -> seller.getUsername().equals(username));
-        switchToAdminMainPage(event);
+        Optional<ButtonType> result = showAlert("Confirmation", "Are you sure you want to delete this seller?");
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            sellers.removeIf(seller -> seller.getUsername().equals(username));
+            switchToAdminMainPage(event);
+        }
     }
 
     public void initialize(URL location, ResourceBundle resources) {

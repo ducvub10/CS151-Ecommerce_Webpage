@@ -28,11 +28,13 @@ public class AdminLoginController extends SignUpController implements Initializa
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
+
+    static String usernamee;
     @FXML
     private void logIn(ActionEvent event) throws IOException {
-        String username = this.usernameField.getText();
+        usernamee = this.usernameField.getText();
         String password = this.passwordField.getText();
-        if (this.isValidLogin(username, password)) {
+        if (this.isValidLogin(usernamee, password)) {
             this.switchToAdminMainPage(event);
         }
 

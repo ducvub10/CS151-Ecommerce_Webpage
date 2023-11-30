@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -83,35 +84,48 @@ public class SignUpController implements Initializable {
         String companyAddress = this.companyAddressField.getText();
 
         try {
-            this.validatePassword(password);
             String userIden = (String)this.userIdentity.getValue();
-            Boolean isCusExist = false;
-            Boolean isSellerExist = false;
-            if (userIden.equals("Customer")) {
-                for (Customer customer: customers) {
-                    if (username.equals(customer.getUsername())) {
-                        showError("The username is already existed");
-                        isCusExist = true;
-                        break;
+            boolean isCusExist = false;
+            boolean isSellerExist = false;
+            if (Objects.equals(username, "") || Objects.equals(phone, "") || Objects.equals(email, "") || Objects.equals(password, "") || Objects.equals(userIden, null)) {
+                showError("Please fill the blank!");
+            }
+            else {
+                this.validatePassword(password);
+                if (userIden.equals("Customer")) {
+                    if (Objects.equals(address, "")){
+                        showError("Please fill the blank!");
+                    } else {
+                        for (Customer customer : customers) {
+                            if (username.equals(customer.getUsername())) {
+                                showError("The username is already existed");
+                                isCusExist = true;
+                                break;
+                            }
+                        }
+                        if (!isCusExist) {
+                            Customer customer1 = new Customer(username, password, email, address, phone);
+                            customers.add(customer1);
+                            this.showSuccess();
+                        }
                     }
-                }
-                if (!isCusExist) {
-                    Customer customer1 = new Customer(username, password, email, address, phone);
-                    customers.add(customer1);
-                    this.showSuccess();
-                }
-            } else if (userIden.equals("Seller")) {
-                for (Seller seller: sellers) {
-                    if (username.equals(seller.getUsername())) {
-                        showError("The username is already existed");
-                        isSellerExist = true;
-                        break;
+                } else if (userIden.equals("Seller")) {
+                    if (Objects.equals(companyName, "") || Objects.equals(companyAddress, "")) {
+                        showError("Please fill the blank!");
+                    } else {
+                        for (Seller seller : sellers) {
+                            if (username.equals(seller.getUsername())) {
+                                showError("The username is already existed");
+                                isSellerExist = true;
+                                break;
+                            }
+                        }
+                        if (!isSellerExist) {
+                            Seller seller1 = new Seller(username, password, email, phone, companyName, companyAddress);
+                            sellers.add(seller1);
+                            this.showSuccess();
+                        }
                     }
-                }
-                if (!isSellerExist) {
-                    Seller seller1 = new Seller(username, password, email, phone, companyName, companyAddress);
-                    sellers.add(seller1);
-                    this.showSuccess();
                 }
             }
         } catch (PasswordException e) {
@@ -179,6 +193,4 @@ public class SignUpController implements Initializable {
         this.stage.setScene(this.scene);
         this.stage.show();
     }
-
-
 }

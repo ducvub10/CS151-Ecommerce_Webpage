@@ -2,34 +2,56 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="750.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.AdminMainPageController">
+<ScrollPane prefHeight="775.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.AdminMainPageController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="840.0" style="-fx-background-color: #4d7beb;">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1160.0" prefWidth="840.0">
          <children>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #9C2B27;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="144.0" text="Admin" textAlignment="CENTER">
+                  <ImageView fitHeight="66.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/emart_logo.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" top="10.0" />
+                     </HBox.margin></ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="370.0" text="Admin:" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB Bold" size="30.0" />
                      </font>
+                     <padding>
+                        <Insets left="250.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label fx:id="label" prefHeight="41.0" prefWidth="200.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="30.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
                   </Label>
                </children>
             </HBox>
-            <Label text="Customer Information">
+            <Label text="Customer Information" textFill="#5c1608">
                <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <padding>
-                  <Insets left="20.0" />
+                  <Insets left="20.0" top="10.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="300.0" prefWidth="820.0">
+            <ScrollPane prefHeight="295.0" prefWidth="840.0" style="-fx-background-color: black;">
                <content>
                   <GridPane fx:id="customerInfo" prefHeight="0.0" prefWidth="0.0">
                     <rowConstraints>
@@ -38,15 +60,15 @@
                   </GridPane>
                </content>
             </ScrollPane>
-            <Label text="Seller Information">
+            <Label text="Seller Information" textFill="#5c1608">
                <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
                </font>
                <padding>
                   <Insets left="20.0" top="10.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="300.0" prefWidth="840.0">
+            <ScrollPane prefHeight="320.0" prefWidth="840.0" style="-fx-background-color: black;">
                <content>
                   <GridPane fx:id="sellerInfo">
                     <rowConstraints>
@@ -55,15 +77,15 @@
                   </GridPane>
                </content>
             </ScrollPane>
-            <Label text="Admin Information">
+            <Label text="Admin Information" textFill="#5c1608">
                <font>
-                  <Font name="Berlin Sans FB" size="20.0" />
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
                </font>
                <padding>
                   <Insets left="20.0" top="10.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="300.0" prefWidth="840.0">
+            <ScrollPane prefHeight="260.0" prefWidth="840.0" style="-fx-background-color: black;">
                <content>
                   <GridPane fx:id="adminInfo">
                     <rowConstraints>
@@ -74,7 +96,10 @@
             </ScrollPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="840.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchToWelcomePage" text="Main" />
+                  <Button mnemonicParsing="false" onAction="#switchToWelcomePage" prefHeight="34.0" prefWidth="85.0" style="-fx-background-radius: 0.5em;" text="Main" textFill="#5c1608">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="20.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>

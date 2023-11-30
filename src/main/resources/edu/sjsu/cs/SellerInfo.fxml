@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="320.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerInfoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="320.0" style="-fx-border-color: #9C2B27; -fx-border-width: .2em;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerInfoController">
     <children>
         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -128,6 +128,9 @@
                 <Insets top="5.0" />
             </padding>
         </VBox>
-      <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteSeller" text="Delete" />
+      <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleteSeller" style="-fx-background-color: #731111;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Bold" size="12.0" />
+         </font></Button>
     </children>
 </VBox>
