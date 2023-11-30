@@ -5,7 +5,7 @@ import edu.sjsu.cs.User.Order;
 
 public class Session {
     private static Session instance = null;
-    private Customer currentCustomer;
+    public static Customer currentCustomer;
     private Order currentOrder;
 
     private Session() {}

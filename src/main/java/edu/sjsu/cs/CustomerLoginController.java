@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static edu.sjsu.cs.Behaviors.Session.currentCustomer;
 
 public class CustomerLoginController extends SignUpController implements Initializable {
     private Stage stage;
@@ -44,6 +45,7 @@ public class CustomerLoginController extends SignUpController implements Initial
         for (Customer customer: customers){
             if (customer.getUsername().equals(username)){
                 if (customer.getPassword().equals(password)){
+                    currentCustomer = new Customer(customer.getUsername(), customer.getPassword(), customer.getEmail(), customer.getAddress(), customer.getPhone());
                     return true;
                 }
                 else {
