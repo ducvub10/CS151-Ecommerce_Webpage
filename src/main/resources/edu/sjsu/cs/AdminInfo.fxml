@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="250.0" style="-fx-border-color: #9C2B27; -fx-border-width: 0.2em;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.AdminInfoController">
+    <children>
+        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../img/avatar.png" />
+            </image>
+            <viewport>
+                <Rectangle2D />
+            </viewport>
+        </ImageView>
+        <VBox alignment="TOP_RIGHT" prefHeight="277.0" prefWidth="248.0" spacing="5.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Username: ">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="user_name" prefHeight="16.0" prefWidth="165.0" text="Label">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Password: ">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="password" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="4.0">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Email: ">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="email" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="26.0">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Position: ">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="position" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="15.0">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="Phone: ">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                            <padding>
+                                <Insets left="5.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="phone" prefHeight="16.0" prefWidth="165.0" text="Label" translateX="23.0">
+                            <font>
+                                <Font name="Berlin Sans FB" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets top="5.0" />
+            </padding>
+            <VBox.margin>
+                <Insets bottom="-15.0" />
+            </VBox.margin>
+        </VBox>
+    </children>
+</VBox>
