@@ -28,7 +28,8 @@ public class TestCustomerMainPage1Controller implements Initializable {
     @FXML
     ScrollPane baseScrollPane;
 
-    
+    @FXML
+    ChoiceBox<String> myChoiceBox;
 
     @FXML
     AnchorPane baseAnchorPane;
@@ -60,16 +61,36 @@ public class TestCustomerMainPage1Controller implements Initializable {
     }
     });
     
-    //ToSignIn
-    HBox hbox1 = signInHBox;
-    hbox1.setOnMouseClicked(event -> {
-        try {
-            PageSwitcher.switchToWelcomePage(event);
-        } catch (IOException e) {
+    String[] profileSelection = {"Profile", "Sign Out"};
+    myChoiceBox.getItems().addAll(profileSelection);
+    myChoiceBox.setValue(Main.getSession().getCurrentCustomer().getUsername());
+    myChoiceBox.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            String selected = myChoiceBox.getValue();
+
+            if(selected.equals("Profile")){
+                try{
+                    PageSwitcher.switchToCustomerProfilePage(event);
+                }
+                catch(IOException e){
+                    System.out.println("Error switching to customer profile page");
+                }
+            }
+
+            if(selected.equals("Sign Out")){
+                try{
+                    Main.getSession().setCurrentCustomer(null);
+                    PageSwitcher.switchToWelcomePage(event);
+                }
+                catch(IOException e){
+                    System.out.println("Error switching to customer order history page");
+                }
+            }
+
             
-            e.printStackTrace();
         }
-        });
+    });
 
     // Search Box
     searchChoiceBox.setValue("All Categories");
