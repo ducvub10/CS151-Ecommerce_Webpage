@@ -1,0 +1,89 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]" date="1701330983009" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 11/29/23, 11:56 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/User/Product.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/User/Product.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/Product.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/Main.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/Main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/User/User.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/User/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$2.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$2.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerCartPageController$cartProductCard$2.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerMainPageController.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerMainPageController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerMainPageController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/User/Customer.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/User/Customer.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/Customer.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$1.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerCartPageController$cartProductCard$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/mainProductCard.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/mainProductCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/mainProductCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerMainPageController$1.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerMainPageController$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerMainPageController$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/User/Seller.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/User/Seller.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/Seller.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerCartPageController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerCartPageController$cartProductCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/CustomerCheckoutPageController.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/CustomerCheckoutPageController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/CustomerCheckoutPageController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/mainProductCard$1.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/mainProductCard$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/mainProductCard$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/module-info.class" />
+    <option name="AFTER_PATH" value="target/classes/module-info.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/module-info.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/Store_Properties/Store.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/Store_Properties/Store.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/Store.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/edu/sjsu/cs/WelcomePageController.class" />
+    <option name="AFTER_PATH" value="target/classes/edu/sjsu/cs/WelcomePageController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_29_23,_11_56 PM_[Changes]/WelcomePageController.class" />
+  </binary>
+</changelist>

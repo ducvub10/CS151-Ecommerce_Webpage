@@ -1,0 +1,840 @@
+Index: .idea/libraries/lib.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/lib.xml b/.idea/libraries/lib.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/lib.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="lib">
++    <CLASSES>
++      <root url="file://$USER_HOME$/Downloads/javafx-sdk-21.0.1/lib" />
++    </CLASSES>
++    <JAVADOC />
++    <NATIVE>
++      <root url="file://$USER_HOME$/Downloads/javafx-sdk-21.0.1/lib" />
++    </NATIVE>
++    <SOURCES />
++    <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-21.0.1/lib" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file
+Index: src/main/resources/edu/sjsu/cs/SellerMainPage.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/edu/sjsu/cs/SellerMainPage.fxml b/src/main/resources/edu/sjsu/cs/SellerMainPage.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/edu/sjsu/cs/SellerMainPage.fxml	
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.ChoiceBox?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.FlowPane?>
++
++<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerMainPageController">
++  <content>
++    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="608.0" prefWidth="654.0">
++         <children>
++            <ImageView fitHeight="59.0" fitWidth="103.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
++               <image>
++                  <Image url="@img/seller_background.fxml.jpeg" />
++               </image>
++            </ImageView>
++            <FlowPane fx:id="itemDisplayArea" layoutY="66.0" prefHeight="532.0" prefWidth="648.0" />
++            <ChoiceBox fx:id="sellerChoiceBox" layoutX="341.0" layoutY="15.0" prefWidth="150.0" />
++            <Label layoutX="172.0" layoutY="20.0" text="Seller Main Page" />
++         </children></AnchorPane>
++  </content>
++</ScrollPane>
+Index: src/main/java/edu/sjsu/cs/SellerAddPageController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/SellerAddPageController.java b/src/main/java/edu/sjsu/cs/SellerAddPageController.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/edu/sjsu/cs/SellerAddPageController.java	
+@@ -0,0 +1,86 @@
++package edu.sjsu.cs;
++
++import java.io.File;
++import java.io.IOException;
++import java.net.URL;
++import java.util.ResourceBundle;
++
++import edu.sjsu.cs.User.Customer;
++import edu.sjsu.cs.User.Product;
++import javafx.event.ActionEvent;
++import javafx.event.EventHandler;
++import javafx.fxml.FXML;
++import javafx.fxml.FXMLLoader;
++import javafx.fxml.Initializable;
++import javafx.geometry.Insets;
++import javafx.scene.Parent;
++import javafx.scene.Scene;
++import javafx.scene.control.Button;
++import javafx.scene.control.Label;
++import javafx.scene.control.TextArea;
++import javafx.scene.control.TextField;
++import javafx.scene.image.ImageView;
++import javafx.scene.layout.*;
++import javafx.scene.paint.Color;
++import javafx.stage.FileChooser;
++import edu.sjsu.cs.Store_Properties.Store;
++import edu.sjsu.cs.User.Seller;
++import edu.sjsu.cs.User.Product;
++import javafx.stage.Stage;
++
++
++public class SellerAddPageController implements Initializable {
++
++    @FXML
++    private Label addText;
++
++    @FXML
++    private Button addButton;
++
++    @FXML
++    private TextArea description;
++
++    @FXML
++    private TextField itemName, itemID;
++
++    @FXML
++    private TextField itemPrice;
++
++    @FXML
++    private Button returnButton;
++    @FXML
++    private String url;
++    private Product product;
++    private Store store;
++    private Seller seller;
++    @FXML
++    private Stage stage;
++    private Scene scene;
++    @FXML
++    private Parent root;
++
++    public void clickAdd(){
++        String id = itemID.getText();
++        String name = itemName.getText();
++        String priceText = itemPrice.getText();
++        double price = Double.parseDouble(priceText);
++        Product item = new Product(id, name, price);
++        Main.getStore().addProduct(item);
++        addText.setText("Item has been added");
++    }
++
++    public void clickReturn()throws IOException{
++        root = FXMLLoader.load(getClass().getResource("SellerMainPage.fxml"));
++
++        stage = (Stage) returnButton.getScene().getWindow();
++        stage.setScene(new Scene(root));
++    }
++
++
++
++    public void initialize(URL location, ResourceBundle resources) {
++        this.store = Main.getStore();
++        this.seller = Main.getSeller();
++    }
++
++}
+Index: src/main/resources/edu/sjsu/cs/SellerAddPage.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/edu/sjsu/cs/SellerAddPage.fxml b/src/main/resources/edu/sjsu/cs/SellerAddPage.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/edu/sjsu/cs/SellerAddPage.fxml	
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.TextArea?>
++<?import javafx.scene.control.TextField?>
++<?import javafx.scene.layout.AnchorPane?>
++
++<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerAddPageController">
++   <children>
++      <TextField fx:id="itemName" layoutX="220.0" layoutY="22.0" promptText="Item Name" />
++      <TextField fx:id="itemPrice" layoutX="220.0" layoutY="101.0" promptText="Item Price" />
++      <Button fx:id="returnButton" layoutX="380.0" layoutY="355.0" mnemonicParsing="false" onAction="#clickReturn" text="Return" />
++      <Button fx:id="addButton" layoutX="180.0" layoutY="355.0" mnemonicParsing="false" onAction="#clickAdd" text="Add" />
++      <TextArea fx:id="description" layoutX="200.0" layoutY="141.0" prefHeight="200.0" prefWidth="200.0" promptText="Description" />
++      <TextField fx:id="itemID" layoutX="220.0" layoutY="64.0" promptText="Item ID" />
++      <Label fx:id="addText" layoutX="244.0" layoutY="360.0" textFill="WHITE" />
++   </children>
++</AnchorPane>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/misc.xml	
+@@ -0,0 +1,13 @@
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/uiDesigner.xml	
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.svg" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.svg" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.svg" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.svg" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/edu/sjsu/cs/SellerMainPageController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/SellerMainPageController.java b/src/main/java/edu/sjsu/cs/SellerMainPageController.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/edu/sjsu/cs/SellerMainPageController.java	
+@@ -0,0 +1,157 @@
++package edu.sjsu.cs;
++
++import java.io.IOException;
++import java.net.URL;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.ResourceBundle;
++
++import edu.sjsu.cs.Store_Properties.Store;
++import edu.sjsu.cs.User.Product;
++import edu.sjsu.cs.User.Seller;
++import javafx.event.ActionEvent;
++import javafx.event.EventHandler;
++import javafx.fxml.FXML;
++import javafx.fxml.FXMLLoader;
++import javafx.fxml.Initializable;
++import javafx.geometry.Insets;
++import javafx.scene.Node;
++import javafx.scene.Parent;
++import javafx.scene.Scene;
++import javafx.scene.control.ChoiceBox;
++import javafx.scene.control.Label;
++import javafx.scene.image.ImageView;
++import javafx.scene.layout.*;
++import javafx.scene.paint.Color;
++import javafx.stage.Stage;
++import javafx.scene.control.Button;
++
++
++public class SellerMainPageController implements Initializable {
++    private Stage stage;
++    private Scene scene;
++    private Parent root;
++    @FXML
++    private FlowPane itemDisplayArea;
++    private Store store;
++    private Seller seller;
++
++    private String[] profileSelection = {"Remove", "Sign Out"};
++
++    @FXML
++    private ChoiceBox<String> sellerChoiceBox;
++
++
++    public void clickRemove(ActionEvent event)throws IOException{
++        root = FXMLLoader.load(getClass().getResource("SellerRemovePage.fxml"));
++        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
++        scene = new Scene(root);
++        stage.setScene(scene);
++        stage.show();
++
++    }
++
++    public void clickLogOut(ActionEvent event)throws IOException{
++        root = FXMLLoader.load(getClass().getResource("SellerLoginPage.fxml"));
++        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
++        scene = new Scene(root);
++        stage.setScene(scene);
++        stage.show();
++    }
++
++    public void initialize(URL location, ResourceBundle resources) {
++
++        this.store = Main.getStore();
++        this.seller = Main.getSeller();
++        sellerChoiceBox.getItems().addAll(profileSelection);
++        sellerChoiceBox.setValue(seller.getUsername());
++
++        sellerChoiceBox.setOnAction(new EventHandler<ActionEvent>() {
++
++            @Override
++            public void handle(ActionEvent event) {
++                String selected = sellerChoiceBox.getValue();
++                if(selected.equals("Remove")){
++                    try{
++                        clickRemove(event);
++                    }
++                    catch(IOException e){
++                        System.out.println("Error switching to seller remove page");
++                    }
++                }
++
++                if(selected.equals("Sign Out")){
++                    try{
++                        clickLogOut(event);
++                    }
++                    catch(IOException e){
++                        System.out.println("Error switching to customer profile page");
++                    }
++                }
++            }
++
++        });
++        displayItem(this.store);
++    }
++
++    private void displayItem(Store seller){
++        List<AnchorPane> sellerItem = new ArrayList<>();
++        for(Product product: store.getProducts().values()){
++            sellerItem.add(new sellerProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId()));
++        }
++        FlowPane flowPane = itemDisplayArea;
++
++        for (AnchorPane item : sellerItem) {
++            flowPane.getChildren().add(item);
++        }
++    }
++
++
++}
++
++
++
++class sellerProductCard extends AnchorPane {
++    public sellerProductCard(String name, double price, ImageView image, String id) {
++
++        this.setPrefSize(200, 200);
++        this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
++        Label productName = new Label();
++        productName.setText(name + " - " + Double.toString(price) + " $");
++
++        Button addMyStore = new Button("Add to My Store");
++        addMyStore.setOnAction(new EventHandler<ActionEvent>() {
++
++            @Override
++            public void handle(ActionEvent event){
++                if (Main.getSeller().sellerItems.contains(Main.getStore().getProducts().get(id))){
++                    Main.getSeller().sellerItems.get(Main.getSeller().sellerItems.indexOf(Main.getStore().getProducts().get(id))).setQuantity(Main.getSeller().sellerItems.get(Main.getSeller().sellerItems.indexOf(Main.getStore().getProducts().get(id))).getQuantity() + 1);
++                    System.out.println("Product " + name + " increased quantity in Store");
++                }
++                else{
++                    Main.getSeller().sellerItems.add(Main.getStore().getProducts().get(id));
++                    Main.getSeller().sellerItems.get(Main.getSeller().sellerItems.indexOf(Main.getStore().getProducts().get(id))).setQuantity(1);
++                    System.out.println("Product " + name + " added to Store");
++                }
++            }
++        });
++
++
++        ImageView productImage = new ImageView();
++        productImage.setFitHeight(150);
++        productImage.setFitWidth(200);
++        productImage.setPreserveRatio(true);
++        productImage.setImage(new javafx.scene.image.Image(getClass().getResource("img/emart_logo.jpg").toExternalForm()));
++
++        BorderPane productBorder = new BorderPane();
++        productBorder.setPrefSize(200, 200);
++        AnchorPane.setTopAnchor(productBorder, 0.0);
++        AnchorPane.setLeftAnchor(productBorder, 0.0);
++        productBorder.setCenter(productImage);
++        productBorder.setTop(productName);
++        productBorder.setBottom(addMyStore);
++
++        this.getChildren().add(productBorder);
++
++    }
++}
+Index: src/main/resources/edu/sjsu/cs/SellerRemovePage.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/edu/sjsu/cs/SellerRemovePage.fxml b/src/main/resources/edu/sjsu/cs/SellerRemovePage.fxml
+new file mode 100644
+--- /dev/null	
++++ b/src/main/resources/edu/sjsu/cs/SellerRemovePage.fxml	
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.ScrollPane?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.FlowPane?>
++
++<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.sjsu.cs.SellerRemovePageController">
++  <content>
++    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="667.0">
++         <children>
++            <Button fx:id="returnButton" layoutX="530.0" layoutY="13.0" mnemonicParsing="false" onAction="#clickReturn" text="Return" />
++            <Label layoutX="220.0" layoutY="18.0" prefHeight="17.0" prefWidth="271.0" text="Seller Remove Page" textAlignment="JUSTIFY" />
++            <FlowPane fx:id="itemDisplayArea" layoutX="4.0" layoutY="45.0" prefHeight="573.0" prefWidth="736.0" />
++         </children></AnchorPane>
++  </content>
++</ScrollPane>
+Index: src/main/java/edu/sjsu/cs/Behaviors/RemoveProduct.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/Behaviors/RemoveProduct.java b/src/main/java/edu/sjsu/cs/Behaviors/RemoveProduct.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/edu/sjsu/cs/Behaviors/RemoveProduct.java	
+@@ -0,0 +1,5 @@
++package edu.sjsu.cs.Behaviors;
++
++public interface RemoveProduct {
++    public void remove(String productId);
++}
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/compiler.xml	
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="semproj" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/edu/sjsu/cs/User/Admin.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/User/Admin.java b/src/main/java/edu/sjsu/cs/User/Admin.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/edu/sjsu/cs/User/Admin.java	
+@@ -0,0 +1,7 @@
++package edu.sjsu.cs.User;
++
++public class Admin extends User{
++    public Admin (String username, String password, String email, String phone){
++        super(username, password, email, phone);
++    }
++}
+Index: src/main/java/edu/sjsu/cs/SellerRemovePageController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/SellerRemovePageController.java b/src/main/java/edu/sjsu/cs/SellerRemovePageController.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/edu/sjsu/cs/SellerRemovePageController.java	
+@@ -0,0 +1,151 @@
++package edu.sjsu.cs;
++
++import java.io.IOException;
++import java.net.URL;
++import java.security.ProtectionDomain;
++import java.util.*;
++
++import edu.sjsu.cs.Store_Properties.Store;
++import edu.sjsu.cs.User.Product;
++import edu.sjsu.cs.User.Seller;
++import javafx.beans.value.ChangeListener;
++import javafx.beans.value.ObservableValue;
++import javafx.event.ActionEvent;
++import javafx.event.EventHandler;
++import javafx.fxml.FXML;
++import javafx.fxml.FXMLLoader;
++import javafx.fxml.Initializable;
++import javafx.geometry.Insets;
++import javafx.scene.Parent;
++import javafx.scene.Scene;
++import javafx.scene.control.*;
++import javafx.scene.image.ImageView;
++import javafx.scene.input.MouseEvent;
++import javafx.scene.layout.*;
++import javafx.scene.paint.Color;
++import javafx.stage.Stage;
++
++public class SellerRemovePageController implements Initializable{
++
++
++    private Store store;
++    private Seller seller;
++    private Stage stage;
++    private Scene scene;
++    @FXML
++    private Parent root;
++    @FXML
++    private Button returnButton,removeButton ;
++    //@FXML
++   // private ListView<String> listOfProducts;
++    @FXML
++    Label removeText;
++    @FXML
++    private FlowPane itemDisplayArea;
++
++    private void displayItem(Seller Seller){
++        List<AnchorPane> sellerItems = new ArrayList<>();
++        for(Product product: Seller.getSellerItems()){
++            sellerItems.add(new SellerRemoveProductCard(product.getName(), product.getPrice(), new ImageView(), product.getProductId(), product.getQuantity()));
++        }
++        FlowPane display = itemDisplayArea;
++
++        display.getChildren().clear();
++
++        for (AnchorPane sellerItem : sellerItems) {
++            display.getChildren().add(sellerItem);
++        }
++    }
++
++    public void clickReturn()throws IOException{
++        root = FXMLLoader.load(getClass().getResource("SellerMainPage.fxml"));
++
++        stage = (Stage) returnButton.getScene().getWindow();
++        stage.setScene(new Scene(root));
++    }
++
++    public void initialize(URL location, ResourceBundle resources) {
++
++        //this.store = Main.getStore();
++        this.seller = Main.getSeller();
++
++        //choiceBox.getItems().addAll((Collection<? extends String>) products);
++        //listOfProducts = (ListView<String>) Main.getStore().getProducts();
++        displayItem(seller);
++
++    }
++
++    class SellerRemoveProductCard extends AnchorPane {
++        private double productPrice;
++        public void setPrice(double price) {
++            this.productPrice = price;
++        }
++
++        public double getPrice() {
++            return productPrice;
++        }
++
++
++
++        public SellerRemoveProductCard(String name, double price, ImageView image, String id, int quantity) {
++
++            this.setPrefSize(200, 200);
++            this.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
++            Label productName = new Label();
++            productName.setText(name + " - " + Double.toString(price) + " $");
++
++            Button deleteFromSeller = new Button("Remove");
++            deleteFromSeller.setOnAction(new EventHandler<ActionEvent>() {
++
++                @Override
++                public void handle(ActionEvent event){
++                    Main.getSeller().sellerItems.remove(Main.getStore().getProducts().get(id));
++                    displayItem(Main.getSeller());
++                    System.out.println("Product " + name + " deleted from store");
++                }
++            });
++
++            TextField quantityField = new TextField();
++            quantityField.setPromptText("Enter quantity");
++            quantityField.setPrefWidth(100);
++            quantityField.setText(Integer.toString(quantity));
++
++            quantityField.textProperty().addListener(new ChangeListener<String>() {
++                @Override
++                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
++                    // This code will be executed whenever the text of the TextField changes
++                    System.out.println("Quantity changed from " + oldValue + " to " + newValue);
++                }
++            });
++
++
++
++            HBox bottomHBox = new HBox();
++            bottomHBox.getChildren().add(deleteFromSeller);
++            bottomHBox.getChildren().add(quantityField);
++
++            ImageView productImage = new ImageView();
++            productImage.setFitHeight(150);
++            productImage.setFitWidth(200);
++            productImage.setPreserveRatio(true);
++            productImage.setImage(new javafx.scene.image.Image(getClass().getResource("img/emart_logo.jpg").toExternalForm()));
++
++            BorderPane productBorder = new BorderPane();
++            productBorder.setPrefSize(200, 200);
++            AnchorPane.setTopAnchor(productBorder, 0.0);
++            AnchorPane.setLeftAnchor(productBorder, 0.0);
++            productBorder.setCenter(productImage);
++            productBorder.setTop(productName);
++            productBorder.setBottom(bottomHBox);
++
++            this.productPrice = quantityField.getText().isEmpty() ? price : price * Integer.parseInt(quantityField.getText());
++            this.getChildren().add(productBorder);
++
++        }
++    }
++
++
++}
++
++
++
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/Project_Default.xml b/.idea/inspectionProfiles/Project_Default.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/inspectionProfiles/Project_Default.xml	
+@@ -0,0 +1,8 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="ExtractMethodRecommender" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="minLength" value="1055" />
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/encodings.xml	
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/jarRepositories.xml	
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file

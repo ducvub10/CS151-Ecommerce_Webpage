@@ -1,0 +1,67 @@
+Index: src/main/java/edu/sjsu/cs/User/Seller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.sjsu.cs.User;\n\npublic class Seller extends User {\n    private String companyName;\n    private String companyAddress;\n\n    public Seller(String username, String password, String email, String phone, String companyName, String companyAddress) {\n        super(username, password, email, phone);\n        this.companyName = companyName;\n        this.companyAddress = companyAddress;\n    }\n\n    public String getCompanyName() {\n        return companyName;\n    }\n\n    public void setCompanyName(String companyName) {\n        this.companyName = companyName;\n    }\n\n    public String getCompanyAddress() {\n        return companyAddress;\n    }\n\n    public void setCompanyAddress(String companyAddress) {\n        this.companyAddress = companyAddress;\n    }\n\n    \n    \n\n    @Override\n    public void viewProfile() {\n        //TODO\n    \n    }\n    \n}\n    \n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/User/Seller.java b/src/main/java/edu/sjsu/cs/User/Seller.java
+--- a/src/main/java/edu/sjsu/cs/User/Seller.java	(revision cd05e7d401dd1abf26500c016596e346a6e78cad)
++++ b/src/main/java/edu/sjsu/cs/User/Seller.java	(date 1701333141516)
+@@ -1,13 +1,18 @@
+ package edu.sjsu.cs.User;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ public class Seller extends User {
+     private String companyName;
+     private String companyAddress;
++    public List<Product> sellerItems;
+ 
+     public Seller(String username, String password, String email, String phone, String companyName, String companyAddress) {
+         super(username, password, email, phone);
+         this.companyName = companyName;
+         this.companyAddress = companyAddress;
++        sellerItems = new ArrayList<>();
+     }
+ 
+     public String getCompanyName() {
+@@ -26,6 +31,10 @@
+         this.companyAddress = companyAddress;
+     }
+ 
++    public List<Product> getSellerItems(){return sellerItems;}
++
++    public void setSellerItems(List<Product> sellerItems){this.sellerItems = sellerItems; };
++
+     
+     
+ 
+Index: src/main/java/edu/sjsu/cs/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.sjsu.cs;\n\n\nimport edu.sjsu.cs.Store_Properties.Store;\nimport edu.sjsu.cs.User.Customer;\nimport edu.sjsu.cs.User.Product;\nimport javafx.application.Application;\nimport javafx.fxml.FXMLLoader;\nimport javafx.stage.Stage;\nimport javafx.scene.Parent;\nimport javafx.scene.Scene;\n\npublic class Main extends Application {\nprivate static Store store = new Store(\"eMart\");\nprivate static Customer customer = new Customer (\"customer\", \"password\", \"email\", \"address\", \"phoneNumber\");\n\npublic static Customer getCustomer(){\n    return customer;\n}\n\npublic static Store getStore() {\n    return store;\n}\n\n@Override\npublic void start(Stage stage) {\n        //Make a customer\n        //Add items to cart\n        store.getProducts().put(\"1\", new Product(\"1\", \"apple\", 10.0));\n        store.getProducts().put(\"2\", new Product(\"2\", \"banana\", 15.0));\n        store.getProducts().put(\"3\", new Product(\"3\", \"dragon fruit\", 20.0));\n        store.getProducts().put(\"4\", new Product(\"4\", \"orange\", 25.0));\n\n    try {\n        Parent root = FXMLLoader.load(getClass().getResource(\"CustomerMainPage.fxml\"));\n        Scene scene = new Scene(root);\n        stage.setScene(scene);\n        stage.show();\n\n        \n   \n    } catch(Exception e) {\n        e.printStackTrace();\n    }\n } \n\n public static void main(String[] args) {\n  launch(args);\n }\n}\n\n// import javafx.scene.layout.BackgroundFill;\n// import javafx.scene.layout.BorderPane;\n// import javafx.scene.layout.CornerRadii;\n// import javafx.geometry.Insets;\n// import javafx.geometry.Pos;\n// import javafx.application.Application;\n// import javafx.scene.Scene;\n// import javafx.scene.control.Label;\n// import javafx.scene.image.ImageView;\n// import javafx.scene.layout.AnchorPane;\n// import javafx.scene.layout.Background;\n// import javafx.scene.layout.FlowPane;\n// import javafx.scene.layout.Pane;\n// import javafx.scene.paint.Color;\n// import javafx.stage.Stage;\n\n// import java.util.ArrayList;\n// import java.util.List;\n\n// public class Main extends Application {\n\n//     @Override\n//     public void start(Stage stage) {\n//         List<AnchorPane> items = new ArrayList<>();\n//         items.add(new CustomAnchorPane());\n//         FlowPane flowPane = new FlowPane();\n//         flowPane.setPrefWidth(200);\n//         flowPane.setMaxWidth(200);\n\n//         for (AnchorPane item : items) {\n//             flowPane.getChildren().add(item);\n//         }\n\n//         Scene scene = new Scene(flowPane, 400, 400);\n//         stage.setScene(scene);\n//         stage.show();\n//     }\n\n//     public static void main(String[] args) {\n//         launch(args);\n//     }\n// }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/Main.java b/src/main/java/edu/sjsu/cs/Main.java
+--- a/src/main/java/edu/sjsu/cs/Main.java	(revision cd05e7d401dd1abf26500c016596e346a6e78cad)
++++ b/src/main/java/edu/sjsu/cs/Main.java	(date 1701332171770)
+@@ -4,6 +4,7 @@
+ import edu.sjsu.cs.Store_Properties.Store;
+ import edu.sjsu.cs.User.Customer;
+ import edu.sjsu.cs.User.Product;
++import edu.sjsu.cs.User.Seller;
+ import javafx.application.Application;
+ import javafx.fxml.FXMLLoader;
+ import javafx.stage.Stage;
+@@ -13,6 +14,8 @@
+ public class Main extends Application {
+ private static Store store = new Store("eMart");
+ private static Customer customer = new Customer ("customer", "password", "email", "address", "phoneNumber");
++private static Seller seller = new Seller ("customer", "password", "email", "phoneNumber", "company", "address");
++public static Seller getSeller(){return seller;}
+ 
+ public static Customer getCustomer(){
+     return customer;

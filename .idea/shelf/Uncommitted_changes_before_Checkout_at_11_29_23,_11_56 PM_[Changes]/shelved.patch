@@ -1,0 +1,20 @@
+Index: src/main/java/edu/sjsu/cs/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.sjsu.cs;\n\n\nimport edu.sjsu.cs.Store_Properties.Store;\nimport edu.sjsu.cs.User.Customer;\nimport edu.sjsu.cs.User.Product;\nimport javafx.application.Application;\nimport javafx.fxml.FXMLLoader;\nimport javafx.stage.Stage;\nimport javafx.scene.Parent;\nimport javafx.scene.Scene;\n\npublic class Main extends Application {\nprivate static Store store = new Store(\"eMart\");\nprivate static Customer customer = new Customer (\"customer\", \"password\", \"email\", \"address\", \"phoneNumber\");\n\npublic static Customer getCustomer(){\n    return customer;\n}\n\npublic static Store getStore() {\n    return store;\n}\n\n@Override\npublic void start(Stage stage) {\n        //Make a customer\n        //Add items to cart\n        store.getProducts().put(\"1\", new Product(\"1\", \"apple\", 10.0));\n        store.getProducts().put(\"2\", new Product(\"2\", \"banana\", 15.0));\n        store.getProducts().put(\"3\", new Product(\"3\", \"dragon fruit\", 20.0));\n        store.getProducts().put(\"4\", new Product(\"4\", \"orange\", 25.0));\n\n    try {\n        Parent root = FXMLLoader.load(getClass().getResource(\"CustomerMainPage.fxml\"));\n        Scene scene = new Scene(root);\n        stage.setScene(scene);\n        stage.show();\n\n        \n   \n    } catch(Exception e) {\n        e.printStackTrace();\n    }\n } \n\n public static void main(String[] args) {\n  launch(args);\n }\n}\n\n// import javafx.scene.layout.BackgroundFill;\n// import javafx.scene.layout.BorderPane;\n// import javafx.scene.layout.CornerRadii;\n// import javafx.geometry.Insets;\n// import javafx.geometry.Pos;\n// import javafx.application.Application;\n// import javafx.scene.Scene;\n// import javafx.scene.control.Label;\n// import javafx.scene.image.ImageView;\n// import javafx.scene.layout.AnchorPane;\n// import javafx.scene.layout.Background;\n// import javafx.scene.layout.FlowPane;\n// import javafx.scene.layout.Pane;\n// import javafx.scene.paint.Color;\n// import javafx.stage.Stage;\n\n// import java.util.ArrayList;\n// import java.util.List;\n\n// public class Main extends Application {\n\n//     @Override\n//     public void start(Stage stage) {\n//         List<AnchorPane> items = new ArrayList<>();\n//         items.add(new CustomAnchorPane());\n//         FlowPane flowPane = new FlowPane();\n//         flowPane.setPrefWidth(200);\n//         flowPane.setMaxWidth(200);\n\n//         for (AnchorPane item : items) {\n//             flowPane.getChildren().add(item);\n//         }\n\n//         Scene scene = new Scene(flowPane, 400, 400);\n//         stage.setScene(scene);\n//         stage.show();\n//     }\n\n//     public static void main(String[] args) {\n//         launch(args);\n//     }\n// }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/edu/sjsu/cs/Main.java b/src/main/java/edu/sjsu/cs/Main.java
+--- a/src/main/java/edu/sjsu/cs/Main.java	(revision cd05e7d401dd1abf26500c016596e346a6e78cad)
++++ b/src/main/java/edu/sjsu/cs/Main.java	(date 1701330352798)
+@@ -32,7 +32,8 @@
+         store.getProducts().put("4", new Product("4", "orange", 25.0));
+ 
+     try {
+-        Parent root = FXMLLoader.load(getClass().getResource("CustomerMainPage.fxml"));
++        Parent root = FXMLLoader.load(getClass().getResource("SellerMainPage.fxml"));
++        //Parent root = FXMLLoader.load(getClass().getResource("CustomerMainPage.fxml"));
+         Scene scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();

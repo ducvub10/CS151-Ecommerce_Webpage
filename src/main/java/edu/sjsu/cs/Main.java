@@ -48,6 +48,7 @@ public class Main extends Application {
         
 
         try {
+            //Parent root = FXMLLoader.load(getClass().getResource("SellerMainPage.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("TestCustomerMainPage1.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);

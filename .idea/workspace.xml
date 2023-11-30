@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc65e382-7c46-4244-8dd7-1c1ca820c713" name="Changes" comment="Seller Main Page and Remove Page with controller and seller info">
+      <changelist_data name="Frank Lo" email="franklo1471@gmail.com" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/SellerAddPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/SellerMainPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/SellerPageSwap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/SellerRemovePageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/sjsu/cs/SellerAddPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/sjsu/cs/SellerMainPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/sjsu/cs/SellerRemovePage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/CoconutTest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/fruit.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/User/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/sjsu/cs/User/Seller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Behaviors/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Behaviors/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController$cartProductCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCartPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCheckoutPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerCheckoutPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerMainPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerMainPageController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerMainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerMainPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/CustomerOrderHistoryCotroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/PageSwitcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/PageSwitcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/ProductCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/ProductCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Store_Properties/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/Store_Properties/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCartProductCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCustomerCartPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCustomerCartPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCustomerMainPage1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/TestCustomerMainPage1Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Seller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/Seller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/User/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/WelcomePageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/WelcomePageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/mainProductCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/mainProductCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/mainProductCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sjsu/cs/mainProductCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Frank Lo &lt;franklo1471@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Frank-Seller" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;assignee&quot;: &quot;ducvub10&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;assignee&quot;: &quot;ducvub10&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="70508cca-c4c5-4dd2-aa53-dd85f9b7bbb8" />
+        <option name="url" value="https://github.com/ducvub10/CS151-Ecommerce_Webpage.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2YmsGYUsYXkIlI0iRtGvWSlY3iM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Kiet-branch-maven",
+    "last_directory_selection": "/Users/franklo/IdeaProjects/CS151-Ecommerce_Webpage_Frank/target/classes",
+    "last_opened_file_path": "/Users/franklo/IdeaProjects/CS151-Ecommerce_Webpage_Frank",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/img" />
+      <recent name="$PROJECT_DIR$/src/main/resources/edu/sjsu/cs" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.sjsu.cs" />
+      <recent name="edu.sjsu.cs.User" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.sjsu.cs.Main" />
+      <module name="semproj" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.sjsu.cs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc65e382-7c46-4244-8dd7-1c1ca820c713" name="Changes" comment="" />
+      <created>1701141993796</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701141993796</updated>
+      <workItem from="1701141994836" duration="52000" />
+      <workItem from="1701142260284" duration="908000" />
+      <workItem from="1701188072876" duration="4654000" />
+      <workItem from="1701198874374" duration="37000" />
+      <workItem from="1701199109864" duration="42000" />
+      <workItem from="1701199219770" duration="126000" />
+      <workItem from="1701199353206" duration="47000" />
+      <workItem from="1701199406750" duration="21000" />
+      <workItem from="1701199698888" duration="31000" />
+      <workItem from="1701199735361" duration="534000" />
+      <workItem from="1701200419564" duration="302000" />
+      <workItem from="1701202208128" duration="2235000" />
+      <workItem from="1701204480387" duration="628000" />
+      <workItem from="1701205205519" duration="2985000" />
+      <workItem from="1701211119476" duration="31695000" />
+      <workItem from="1701329474849" duration="888000" />
+      <workItem from="1701330382676" duration="3736000" />
+      <workItem from="1701335293197" duration="133000" />
+      <workItem from="1701336241338" duration="657000" />
+      <workItem from="1701336907773" duration="9845000" />
+    </task>
+    <task id="LOCAL-00001" summary="Seller Main Page and Remove Page with controller and seller info">
+      <option name="closed" value="true" />
+      <created>1701329675930</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701329675931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Seller Main Page and Remove Page with controller and seller info" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seller Main Page and Remove Page with controller and seller info" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
