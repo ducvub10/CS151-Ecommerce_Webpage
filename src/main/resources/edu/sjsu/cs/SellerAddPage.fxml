@@ -34,5 +34,6 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
+      <Button fx:id="chooseImageButton" layoutX="166.0" layoutY="187.0" mnemonicParsing="false" text="Add image" />
     </children>
 </AnchorPane>

@@ -3,6 +3,8 @@ package edu.sjsu.cs;
 import edu.sjsu.cs.Store_Properties.Store;
 import edu.sjsu.cs.User.Product;
 import edu.sjsu.cs.User.Seller;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,8 +15,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +34,9 @@ public class SellerAddPageController implements Initializable {
 
     @FXML
     private Button addButton;
+
+    @FXML
+    private Button chooseImageButton;
 
 
     @FXML
@@ -76,6 +83,22 @@ public class SellerAddPageController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         this.store = Main.getStore();
+        chooseImageButton.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files (*.png, *.jpg, *.jpeg)", "*.png", "*.jpg", "*.jpeg");
+            fileChooser.getExtensionFilters().add(extFilter);
+            File file = fileChooser.showOpenDialog(null);
+
+            if (file != null) {
+                Image image = new Image(file.toURI().toString());
+                // Do something with the image
+            }
+
+            itemImage.setImage(new Image(file.toURI().toString()));
+        }
+    });
     }
 
 }
