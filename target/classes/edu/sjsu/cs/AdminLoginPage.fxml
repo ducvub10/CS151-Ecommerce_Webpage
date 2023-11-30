@@ -11,13 +11,14 @@
          <children>
             <TextField fx:id="usernameField" layoutX="27.0" layoutY="103.0" prefHeight="26.0" prefWidth="238.0" promptText="username" style="-fx-background-color: #9C2B27; -fx-border-color: #1C1C1C; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="passwordField" layoutX="27.0" layoutY="161.0" prefHeight="26.0" prefWidth="238.0" promptText="password" style="-fx-background-color: #9C2B27; -fx-border-color: #1C1C1C; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.bottomAnchor="132.0" />
-            <Button layoutX="29.0" layoutY="220.0" mnemonicParsing="false" onAction="#logIn" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: #eb4034;" text="Sign in" textFill="#c3baba" />
+            <Button layoutX="29.0" layoutY="204.0" mnemonicParsing="false" onAction="#logIn" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: #eb4034;" text="Sign in" textFill="#c3baba" />
             <Label layoutX="121.0" layoutY="39.0" text="Sign in" textFill="#e1e1e1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
             <Hyperlink layoutX="93.0" layoutY="273.0" text="Forgot Password?" textFill="#d7cdcd" underline="true" />
+            <Button layoutX="29.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToWelcomePage" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: #eb4034;" text="Back to WelcomePage" textFill="#c3baba" />
          </children>
       </AnchorPane>
       <StackPane layoutX="23.0" layoutY="40.0" prefHeight="314.0" prefWidth="313.0">

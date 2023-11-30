@@ -59,6 +59,14 @@ public class SellerLoginController extends SignUpController implements Initializ
         this.stage.show();
     }
 
+    public void switchToWelcomePage(ActionEvent event) throws IOException {
+        this.root = (Parent)FXMLLoader.load(this.getClass().getResource("WelcomePage.fxml"));
+        this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        this.scene = new Scene(this.root);
+        this.stage.setScene(this.scene);
+        this.stage.show();
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
     }
 }
