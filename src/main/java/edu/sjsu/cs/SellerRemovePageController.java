@@ -54,7 +54,7 @@ public class SellerRemovePageController implements Initializable{
         Product item = new Product(id, name, price, description);
         Main.getStore().removeProduct(item);
         removeText.setText(name + " has been removed");
-        System.out.println(name + " has been added to the Store!");
+        System.out.println(name + " has been removed from the Store!");
     }
 
 
