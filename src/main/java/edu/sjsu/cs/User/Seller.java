@@ -1,4 +1,4 @@
-package User;
+package edu.sjsu.cs.User;
 
 public class Seller extends User {
     private String companyName;

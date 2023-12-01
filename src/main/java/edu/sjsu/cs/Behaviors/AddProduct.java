@@ -1,4 +1,4 @@
-package Behaviors;
+package edu.sjsu.cs.Behaviors;
 
 public interface AddProduct {
     // Method to add a product to the ecommerce website

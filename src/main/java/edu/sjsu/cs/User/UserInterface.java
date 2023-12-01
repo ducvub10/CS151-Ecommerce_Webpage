@@ -1,4 +1,4 @@
-package User;
+package edu.sjsu.cs.User;
 
 public interface UserInterface {
     public String getUsername();

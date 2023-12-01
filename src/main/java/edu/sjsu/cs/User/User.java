@@ -1,4 +1,4 @@
-package User;
+package edu.sjsu.cs.User;
 
 public abstract class User  {
     private String username;
