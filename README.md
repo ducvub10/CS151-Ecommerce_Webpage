@@ -29,6 +29,10 @@ Adithkrishnan98’s ECommerce-Java.
 • If applicable, describe assumptions / operating environments / intended usage 
 
 • Diagrams [just the reference - hyperlinks not actual image] (update your diagrams if you have changed your design and previous feedback. Add a sequence diagram if it is missing)
+[ClassDiagram](https://github.com/ducvub10/CS151-Ecommerce_Webpage/blob/main/diagrams/ClassDiagram.drawio.png)
+[UseCaseDiagram](https://github.com/ducvub10/CS151-Ecommerce_Webpage/blob/main/diagrams/UseCaseDiagram.drawio.png)
+[StateDiagram](https://github.com/ducvub10/CS151-Ecommerce_Webpage/blob/main/diagrams/StateDiagram.drawio.png)
+[SequenceDiagram](https://github.com/ducvub10/CS151-Ecommerce_Webpage/blob/main/diagrams/SequenceDiagram.drawio.png)
 
 • Functionality: describe how your solution tackles the issues 
 
